@@ -2,7 +2,6 @@ package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -10,9 +9,8 @@ import java.util.List;
 
 import javax.swing.*;
 
-
 import datechooser.beans.DateChooserCombo;
-import modelos.CambioMoneda;
+import org.jfree.chart.ChartPanel;
 
 public class MonedasVista extends JFrame {
 
@@ -119,5 +117,12 @@ public class MonedasVista extends JFrame {
         if (posicion >= 0 && posicion < tpCambiosMoneda.getTabCount()) {
             tpCambiosMoneda.setSelectedIndex(posicion);
         }
+    }
+
+    public void mostrarGrafica(ChartPanel renderizadorGrafica){
+        pnlGrafica.removeAll();
+        pnlGrafica.setLayout(new BorderLayout());
+        pnlGrafica.add(renderizadorGrafica, BorderLayout.CENTER);
+        pnlGrafica.revalidate();
     }
 }
